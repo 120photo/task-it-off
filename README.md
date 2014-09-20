@@ -1,4 +1,4 @@
-# discoverTask
+# Task it Off
 
 Self destrucitng todo list. Task are destroyed after 7 days, completed or not. Every week you recieve a summary of acomplishments
 
