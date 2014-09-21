@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -36,10 +36,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# group :development, :test do
-#   gem 'rspec-rails'
-#   gem 'capybara'
-# end
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
 
 group :production do
   gem 'pg'
@@ -48,6 +48,8 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'
