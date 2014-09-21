@@ -1,0 +1,7 @@
+# Setup your private environemt variables
+
+# Sendgrid account info for Heroku emailing
+SENDGRID_PASSWORD:
+SENDGRID_USERNAME:
+
+DEVISE_SECRET_KEY:
