@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+  <%= image_tag(current_user.avatar) if current_user.avatar? %>
+  <p class="pull-right">Hello <%= current_user.name %></p>
+  <% else %>
+  <p class="pull-right">Hi Guest</p>
+  <% end %>
+
   <% if flash[:notice] %>
   <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
