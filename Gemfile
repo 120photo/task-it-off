@@ -57,4 +57,4 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'figaro'
-gem 'whenever'
+gem 'whenever', :require => false
