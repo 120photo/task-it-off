@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @list = List
     @my_lists = users_list
   end
 
@@ -8,14 +8,14 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new
+    @list = List.all
   end
 
   def edit
   end
 
   def create
-    @list = List.new(list_params)
+    @list = List.all
   end
 
   private

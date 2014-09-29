@@ -58,3 +58,4 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem 'figaro'
 gem 'whenever', :require => false
+gem 'simple_form'
