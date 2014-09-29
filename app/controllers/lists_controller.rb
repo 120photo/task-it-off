@@ -25,7 +25,9 @@ class ListsController < ApplicationController
   end
 
   def users_list
-    @list = List.all.where(user_id: current_user.id)
-    return @list
+    if current_user
+      @list = List.all.where(user_id: current_user.id)
+      return @list
+    end
   end
 end
