@@ -16,8 +16,8 @@
         <th>Task Count</th>
         <% @my_lists.each do |list| %>
         <tr>
-          <td><%= list.name %></td>
-          <td>5 - (placeholder)</td>
+          <td><%= link_to list.name, list %></td>
+          <td><%= list.tasks.count %></td>
         </tr>
         <% end %>
       </table>
