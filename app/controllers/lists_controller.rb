@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @page_name = 'Your Task List(s)'
     @list = List.all
     @my_lists = users_list
   end

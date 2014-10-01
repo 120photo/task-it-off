@@ -14,3 +14,11 @@
  *= require_self
  */
 @import "bootstrap";
+
+user-nav {
+  margin: 50px;
+}
+
+user-image {
+  padding: 5px;
+}

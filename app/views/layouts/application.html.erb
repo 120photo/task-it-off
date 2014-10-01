@@ -2,46 +2,55 @@
 <html>
 <head>
   <title>TaskItOff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-  <%= image_tag(current_user.avatar, class: "pull-right") if current_user.avatar? %>
-  <p class="pull-right">Hello <%= current_user.name %></p>
-  <% else %>
-  <p class="pull-right">Hi Guest</p>
-  <% end %>
-
-  <% if flash[:notice] %>
-  <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:notice] %>
-  </div>
-  <% elsif flash[:error] %>
-  <div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:error] %>
-  </div>
-  <% elsif flash[:alert] %>
-  <div class="alert alert-warning">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= flash[:alert] %>
-  </div>
-  <% end %>
-
 
   <ul class="nav nav-tabs top-nav">
     <% if current_user %>
       <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <li><%= link_to "My List(s)", lists_path %></li>
     <% else %>
-      <!-- <li><%= link_to "Sign In", new_user_session_path %></li>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li> -->
       <li><a href="/users/auth/facebook">Login with Facebook</a></li>
     <% end %>
+    <li><%= link_to "About", about_path %></li>
   </ul>
+
+
+  <div class="jumbotron">
+
+    <div class="user-nav pull-right">
+      <% if current_user %>
+      <p>Hello <%= current_user.name %></p>
+      <%= image_tag(current_user.avatar, class: "pull-right") if current_user.avatar? %>
+      <% else %>
+      <p>Hi Guest</p>
+      <% end %>
+    </div>
+
+    <h1><%= @page_name %></h1>
+
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+    <% elsif flash[:error] %>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:error] %>
+    </div>
+    <% elsif flash[:alert] %>
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
+
+  </div>
 
 
 <%= yield %>
