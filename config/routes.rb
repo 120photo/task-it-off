@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'about' => "home#about"
 
   resources :lists
-  resources :tasks
+
+  resources :lists do
+    resources :tasks, except: [:index], controller: 'lists/tasks'
+  end
 
 end

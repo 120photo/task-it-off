@@ -1,0 +1,4 @@
+<%= simple_form_for [list, task] do |f| %>
+  <%= f.input :name, required: true, placeholder: "New Task" %>
+  <%= f.button :submit, "Create Task" %>
+<% end %>

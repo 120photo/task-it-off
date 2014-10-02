@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     @task.save
-    redirect_to tasks_url
+    redirect_to lists_url
   end
 
   def edit
@@ -23,6 +23,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:list).permit(:name)
+    params.require(:task).permit(:name)
   end
 end

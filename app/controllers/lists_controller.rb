@@ -8,8 +8,13 @@ class ListsController < ApplicationController
     @my_lists = users_list
   end
 
+  # def show
+  #   @list = List.all.where(list_id: params[:id])
+  # end
+
   def show
-    @list = List.all.where(list_id: params[:id])
+    @page_name = "List Tasks"
+    @lists_tasks = Task.all.where(list_id: params[:id])
   end
 
   def new
