@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926051833) do
+ActiveRecord::Schema.define(version: 20141006055520) do
 
   create_table "lists", force: true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140926051833) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "list_id"
+    t.boolean  "expired"
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"
