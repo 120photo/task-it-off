@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <h3>Due within 3 days...</h3>
+      <h3>Due within 3 days...or so</h3>
       <ul>
         <li>task</li>
         <li>task</li>
@@ -17,11 +17,11 @@
         <% @lists_tasks.each do |task| %>
         <tr>
           <td><%= task.name %></td>
-          <td><%= task.created_at %></td>
+          <td><%= distance_of_time_in_words_to_now(task.created_at + 7.days) %></td>
         </tr>
         <% end %>
       </table>
-        <%= render partial: 'addtask' %>
+        <%= render partial: 'lists/tasks/addtask' %>
       <% else %>
         <p>
           You need to

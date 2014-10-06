@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :lists
 
   resources :lists do
-    resources :tasks, except: [:index], controller: 'lists/tasks'
+    resources :tasks, controller: 'lists/tasks'
   end
 
 end
