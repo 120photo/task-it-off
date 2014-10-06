@@ -12,7 +12,8 @@ class ListsController < ApplicationController
     # /list/:id shows task that belong
     # to a particular task list
     @list = List.find(params[:id])
-    @page_name = "List Tasks 321"
+    @page_name = @list.name
+    # task that belong to list and are not expired
     @lists_tasks = Task.all.where(list_id: params[:id], expired: false)
     @task = Task.new
   end

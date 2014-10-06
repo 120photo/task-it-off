@@ -3,8 +3,6 @@ class Lists::TasksController < ApplicationController
   before_filter :get_list
 
   def index
-    @page_name = "List Tasks 007"
-    @lists_tasks = @list.tasks
   end
 
   def show
