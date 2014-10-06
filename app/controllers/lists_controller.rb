@@ -13,7 +13,7 @@ class ListsController < ApplicationController
     # to a particular task list
     @list = List.find(params[:id])
     @page_name = "List Tasks 321"
-    @lists_tasks = Task.all.where(list_id: params[:id])
+    @lists_tasks = Task.all.where(list_id: params[:id], expired: false)
     @task = Task.new
   end
 
