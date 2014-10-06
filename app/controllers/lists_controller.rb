@@ -6,6 +6,7 @@ class ListsController < ApplicationController
     @page_name = 'Your Task List(s)'
     @list = List.all
     @my_lists = users_list
+    @due_three_days = three_days
   end
 
   def show
@@ -16,6 +17,7 @@ class ListsController < ApplicationController
     # task that belong to list and are not expired
     @lists_tasks = Task.all.where(list_id: params[:id], expired: false)
     @task = Task.new
+    @due_three_days = three_days
   end
 
   def new
@@ -43,5 +45,13 @@ class ListsController < ApplicationController
       @list = List.all.where(user_id: current_user.id)
       return @list
     end
+  end
+
+  def three_days
+    task = []
+    Task.where("created_at <= ?", Time.now - 3.days).each do |item|
+      task << item.name
+    end
+    return task
   end
 end

@@ -3,9 +3,9 @@
     <div class="col-md-3">
       <h3>Due within 3 days...</h3>
       <ul>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
+        <% @due_three_days.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
       </ul>
     </div>
     <div class="col-md-9">
