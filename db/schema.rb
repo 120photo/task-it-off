@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141006055520) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "list_id"
-    t.boolean  "expired"
+    t.boolean  "expired",    default: false
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"

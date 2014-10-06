@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :lists
 
   resources :lists do
-    resources :tasks, controller: 'lists/tasks'
+    resources :tasks, only: [:create], controller: 'lists/tasks'
   end
 
 end

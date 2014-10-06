@@ -14,6 +14,7 @@ class Lists::TasksController < ApplicationController
   end
 
   def create
+    # used to create task in /list/:id
     @task = @list.tasks.build(task_params)
     @task.user = current_user
     @task.save

@@ -9,8 +9,10 @@ class ListsController < ApplicationController
   end
 
   def show
+    # /list/:id shows task that belong
+    # to a particular task list
     @list = List.find(params[:id])
-    @page_name = "List Tasks"
+    @page_name = "List Tasks 321"
     @lists_tasks = Task.all.where(list_id: params[:id])
     @task = Task.new
   end
