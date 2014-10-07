@@ -32,12 +32,25 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:id])
+    @page_name = @list.name
+  end
+
+  def update
+    @list = List.find(params[:id])
+    if @list.update_attributes(list_params)
+      flash[:notice] = "List updated."
+      redirect_to [@list]
+    else
+      flash[:error] = "There was an error. Please try again."
+      render :new
+    end
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :public)
   end
 
   def users_list

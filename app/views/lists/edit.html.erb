@@ -1,2 +1,13 @@
-<h1>Lists#edit</h1>
+<h1>Edit list properties</h1>
 <p>Find me in app/views/lists/edit.html.erb</p>
+
+<div class="container">
+
+  <div class="form-group">
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name, required: true, placeholder: "New List Name" %>
+      <%= f.input :public, as: :boolean, checked_value: true, unchecked_value: false, class: 'checkbox' %>
+      <%= f.button :submit, "Make Edits", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
