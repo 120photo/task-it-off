@@ -18,7 +18,10 @@
         <th>Days Left</th>
         <% @lists_tasks.each do |task| %>
         <tr>
-          <td><%= task.name %></td>
+          <td>
+            <%#= link_to task.name , list_tasks_path(params[:id]) %>
+            <%= link_to task.name, edit_list_task_path(@list, task.id) %>
+          </td>
           <td><%= time_ago_in_words(task.created_at + 7.days) %></td>
         </tr>
         <% end %>

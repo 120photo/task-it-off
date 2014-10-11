@@ -20,6 +20,8 @@ class Lists::TasksController < ApplicationController
   end
 
   def edit
+    @task = @list.tasks.find(params[:id])
+    # redirect_to list_task_url
   end
 
   private

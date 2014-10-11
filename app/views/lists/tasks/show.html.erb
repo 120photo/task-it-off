@@ -1,0 +1,13 @@
+<h1>Edit task properties</h1>
+<p>Find me in app/views/lists/tasks/edit.html.erb</p>
+
+<div class="container">
+
+  <div class="form-group">
+    <%= simple_form_for @task_edit do |f| %>
+      <%= f.input :name, required: true, placeholder: "New List Name" %>
+      <%= f.input :public, as: :boolean, checked_value: true, unchecked_value: false, class: 'checkbox' %>
+      <%= f.button :submit, "Make Edits", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
