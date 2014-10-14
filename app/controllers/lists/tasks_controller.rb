@@ -24,6 +24,17 @@ class Lists::TasksController < ApplicationController
     # redirect_to list_task_url
   end
 
+  def update
+    @task = @list.tasks.find(params[:id])
+    if @task.update_attributes(task_params)
+      flash[:notice] = "Task updated."
+      redirect_to [@list]
+    else
+      flash[:error] = "There was an error. Please try again."
+      render :new
+    end
+  end
+
   private
 
   def get_list
@@ -31,6 +42,6 @@ class Lists::TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :status)
   end
 end

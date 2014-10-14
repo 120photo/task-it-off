@@ -4,7 +4,7 @@
 <div class="container">
 
   <div class="form-group">
-    <%= simple_form_for (@task) do |f| %>
+    <%= simple_form_for [@list, @task] do |f| %>
       <%= f.input :name, required: true, placeholder: "Edit Task" %>
       <%= f.input :status, as: :boolean, checked_value: true, unchecked_value: false, class: 'checkbox' %>
       <%= f.button :submit, "Make Edits", class: 'btn btn-success' %>
