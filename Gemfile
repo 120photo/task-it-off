@@ -50,6 +50,7 @@ group :development do
   gem 'sqlite3'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem "letter_opener"
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'

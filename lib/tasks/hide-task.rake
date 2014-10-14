@@ -4,3 +4,12 @@ task expire_old_task: :environment do
     task.update_column(:expired, true)
   end
 end
+
+desc "Send out email of task completed within last week"
+task email_finished_tasks: :environment do
+  finished_task = []
+  tasks_accomplished = Task.where(status: true).each do |task|
+    finished_task << task.name
+    puts finished_task
+  end
+end
