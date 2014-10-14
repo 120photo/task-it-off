@@ -16,10 +16,9 @@
       <table class="table table-striped table-hover">
         <th>Task Name</th>
         <th>Days Left</th>
-        <% @lists_tasks.each do |task| %>
+        <% @lists_tasks.where(status: false).each do |task| %>
         <tr>
           <td>
-            <%#= link_to task.name , list_tasks_path(params[:id]) %>
             <%= link_to task.name, edit_list_task_path(@list, task.id) %>
           </td>
           <td><%= time_ago_in_words(task.created_at + 7.days) %></td>
