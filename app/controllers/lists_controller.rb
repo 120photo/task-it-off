@@ -62,7 +62,7 @@ class ListsController < ApplicationController
 
   def three_days
     task = []
-    Task.where("created_at <= ?", Time.now - 3.days).each do |item|
+    Task.where("created_at <= ?", Time.now - 3.days).where(expired: false).each do |item|
       task << item.name
     end
     return task
