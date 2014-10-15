@@ -17,7 +17,7 @@
         <% @my_lists.each do |list| %>
         <tr>
           <td><%= link_to list.name, list %></td>
-          <td><%= list.tasks.where(expired: false).count %></td>
+          <td><%= list.tasks.where(expired: false, status: false).count %></td>
         </tr>
         <% end %>
       </table>
