@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   has_many :lists
   has_many :tasks
@@ -8,6 +9,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+
+  def completed_tasks
+    tasks.where(status: true).where("created_at >= ?", 7.days.ago)
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

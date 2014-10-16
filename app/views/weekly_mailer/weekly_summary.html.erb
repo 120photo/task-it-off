@@ -4,8 +4,8 @@
   here is what you did this week (<%= @date_range %>):
 </p>
 <ul>
-  <% @finished_task.each do |task| %>
-    <li><%= task %></li>
+  <% @user.completed_tasks.each do |task| %>
+    <li><%= task.name %></li>
   <% end %>
 </ul>
 
