@@ -8,9 +8,25 @@ end
 desc "Send out email of task completed within last week"
 task email_finished_tasks: :environment do
   tasks_accomplished = Task.where(status: true).where("created_at >= ?", 7.days.ago)
+  finished_task = []
   tasks_accomplished.each do |task|
-    finished_task = []
+    # finished_task = []
     finished_task << task.name
-    puts finished_task
+    # WeeklyMailer.weekly_summary(task.user, finished_task).deliver
   end
+  puts finished_task
+  users = User.first
+  WeeklyMailer.weekly_summary(users, finished_task).deliver
+end
+
+
+desc "test task for my email task"
+task find_users: :environment do
+  users = User.all
+  user_id_numbers = []
+  # puts user_id in array, used to find
+  # task by user's ID numbers
+  users.each {|n| user_id_numbers << n.id}
+
+  puts user_id_numbers
 end

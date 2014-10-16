@@ -1,0 +1,15 @@
+<h1>Weekly Summary</h1>
+<p>
+  Just as an FYI...</br>
+  here is what you did this week (<%= @date_range %>):
+</p>
+<ul>
+  <% @finished_task.each do |task| %>
+    <li><%= task %></li>
+  <% end %>
+</ul>
+
+<p>
+  Did not finish a task? Probably did not matter, move on and
+  focus on what does matter to you.
+</p>
