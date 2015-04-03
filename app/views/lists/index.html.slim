@@ -1,0 +1,58 @@
+/ <div class="container">
+/   <div class="row">
+/     <div class="col-md-3">
+/       <h3>Due within 3 days...</h3>
+/       <ul>
+/         <% @due_three_days.each do |task| %>
+/           <li><%= task %></li>
+/         <% end %>
+/       </ul>
+/     </div>
+/     <div class="col-md-9">
+/       <h2>My List(s)</h2>
+/       <% if current_user %>
+/       <table class="table table-striped table-hover">
+/         <th>List Name</th>
+/         <th>Task Count</th>
+/         <% @my_lists.each do |list| %>
+/         <tr>
+/           <td><%= link_to list.name, list %></td>
+/           <td><%= list.tasks.where(expired: false, status: false).count %></td>
+/         </tr>
+/         <% end %>
+/       </table>
+/         <%= render partial: 'form' %>
+/       <% else %>
+/         <p>
+/           You need to
+/           <%= link_to "Sign In", new_user_session_path %>
+/           to view your list(s).
+/         </p>
+/       <% end %>
+/     </div>
+/
+/     </div>
+/ </div>
+
+.container
+  .row
+    .col-md-3
+      h3 Due within 3 days...
+      ul
+        - @due_three_days.each do |task|
+          li
+            = task
+    .col-md-9
+      h2 My List(s)
+      - if current_user
+        table.table.table-striped.table-hover
+          th List Name
+          th Task Count
+          - @my_lists.each do |list|
+            tr
+              td #{link_to list.name, list}
+              td #{list.tasks.where(expired: false, status: false).count}
+        = render partial: 'form'
+      - else
+        p
+          You need to #{link_to "Sign In", new_user_session_path} to view your list(s).
