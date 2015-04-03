@@ -1,0 +1,24 @@
+.container
+  <!-- button to edit list -->
+  = link_to "Edit List", edit_list_path, class: 'btn btn-success'
+  .row
+    .col-md-3
+      h3 Due within 3 days
+      ul
+        - @due_three_days.each do |task|
+          li
+            = task
+    .col-md-9
+      h2 Task
+      - if current_user
+        table.table.table-striped.table-hover
+          th Task Name
+          th Days Left
+          - @lists_tasks.where(status: false).each do |task|
+            tr
+              td #{link_to task.name, edit_list_task_path(@list, task.id)}
+              td #{time_ago_in_words(task.created_at + 7.days)}
+
+        = render partial: 'lists/tasks/addtask'
+      -else
+        p You need to #{link_to "Sign In", new_user_session_path} to view your list(s).

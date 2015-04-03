@@ -5,3 +5,10 @@ SENDGRID_PASSWORD:
 SENDGRID_USERNAME:
 
 DEVISE_SECRET_KEY:
+
+# set from email address for emails sent for user account confirmation
+SENDER_EMAIL: TaskItOff@example.com # or what ever project you want
+
+# Facebook Authentication
+FACEBOOK_ID:
+FACEBOOK_SECRET:

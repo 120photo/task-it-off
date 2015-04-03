@@ -1,0 +1,12 @@
+h1 Weekly Summary
+p
+|  Just as an FYI...</br>
+|  here is what you did this week #{@date_range} :
+ul
+  - @user.completed_tasks.each do |task| %>
+    li
+      = task.name
+
+p
+|  Did not finish a task? Probably did not matter, move on and
+|  focus on what does matter to you.

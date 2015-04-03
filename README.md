@@ -11,15 +11,14 @@ ToDo list that clears out items after 7 days.
 Because there are better things to do with your life!
 
 ### Dependencies
-* Ruby 2.1.1
-* Rails 4.1.2
 *
 
 ### How to install?
 
 ```bash
-$>git clone <repo url>
-$>cd <project folder>
-$>bundle
+git clone git@github.com:120photo/task-it-off.git
+cd task-it-off
+bundle
+rake secret # use to generate secret key for devise
 ```
 You will also need to configure figaro env variables
