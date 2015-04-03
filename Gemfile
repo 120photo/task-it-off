@@ -60,3 +60,5 @@ gem 'faker'
 gem 'figaro'
 gem 'whenever', :require => false
 gem 'simple_form'
+gem 'slim-rails'
+gem 'slim'
